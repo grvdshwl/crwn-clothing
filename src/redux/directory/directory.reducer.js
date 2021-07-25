@@ -1,33 +1,39 @@
+import Hats from "../../assets/hats.jpg";
+import Jackets from "../../assets/jackets.jpg";
+import Mens from "../../assets/mens.jpg";
+import Sneakers from "../../assets/sneakers.jpg";
+import Womens from "../../assets/womens.jpg";
+
 const INITIAL_STATE = {
   sections: [
     {
       title: "hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
+      imageUrl: Hats,
       id: 1,
       linkUrl: "shop/hats",
     },
     {
       title: "jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
+      imageUrl: Jackets,
       id: 2,
       linkUrl: "shop/jackets",
     },
     {
       title: "sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
+      imageUrl: Sneakers,
       id: 3,
       linkUrl: "shop/sneakers",
     },
     {
       title: "womens",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+      imageUrl: Womens,
       id: 4,
       linkUrl: "shop/womens",
       size: "large",
     },
     {
       title: "mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+      imageUrl: Mens,
       size: "large",
       id: 5,
       linkUrl: "shop/mens",
