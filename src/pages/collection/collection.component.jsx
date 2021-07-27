@@ -16,8 +16,8 @@ const CollectionPage = ({ collection }) => {
       <TitleDiv> {title} </TitleDiv>
       <ItemsDiv>
         {items.map((item) => (
-          <CollectionItemDiv>
-            <CollectionItem key={item.id} item={item} />
+          <CollectionItemDiv key={item.id}>
+            <CollectionItem item={item} />
           </CollectionItemDiv>
         ))}
       </ItemsDiv>
