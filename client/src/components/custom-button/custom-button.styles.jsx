@@ -21,6 +21,9 @@ const regularStyles = css`
     color: black;
     border: 1px solid black;
   }
+  @media screen and (max-width: 800px) {
+    margin: 10px 0;
+  }
 `;
 
 const googleSignInStyles = css`
@@ -58,6 +61,10 @@ export const CustomButtonContainer = styled.button`
   cursor: pointer;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 800px) {
+    font-size: 12px;
+  }
 
   ${getButtonStyles}
 `;

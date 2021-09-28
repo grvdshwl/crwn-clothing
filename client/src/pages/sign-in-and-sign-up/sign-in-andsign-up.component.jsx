@@ -10,6 +10,10 @@ const SignInAndSignUpPageContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 30px auto;
+  @media screen and (max-width: 800px) {
+    width: 400px;
+    margin: 10px auto;
+  }
 `;
 
 const SignInAndSignUpPage = () => (

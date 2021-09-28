@@ -2,10 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
+const enforce = require("express-sslify");
+const compression = require("compression");
+let origin = "http://localhost:3000";
 if (process.env.NODE_ENV !== "Production") {
   require("dotenv").config();
+  origin = "https://adoring-tesla-d43050.netlify.app";
 }
-require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const app = express();
 
@@ -15,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: origin,
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
@@ -23,6 +26,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 if (process.env.NODE_ENV !== "production") {
+  app.use(compression);
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.use(express.static(path.join(__dirname, "client/build")));
 
   app.get("*", function (req, res) {
@@ -34,6 +39,10 @@ app.listen(port, (error) => {
     throw error;
   }
   console.log(`server is running on the  port : ${port}`);
+});
+
+app.get("/service-worker.js", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "..", "build", "service-worker.js"));
 });
 
 app.post("/payment", (req, res) => {
